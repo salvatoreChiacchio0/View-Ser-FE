@@ -1,0 +1,29 @@
+<div class="container-page">
+    <div class="left-box">
+        <div class="img-db">
+
+        </div>
+    </div>
+    <div class="right-box">
+        <div class="container-form">
+
+            <div class="title"> <h2 class="title-font">Log In</h2></div>
+            <div class="title box-title"> <h4 class="text">Welcome to the Test View-Serializability Playground! <br> Enter your credentials below to explore and test the View-Serializability features in this interactive environment</h4></div>
+    
+            <form [formGroup]="loginFormgroup" >
+                <input type="email" formControlName="email" placeholder="Insert an email">
+                <input type="password" formControlName="password" placeholder="Password...">
+    
+            </form>
+            <div class="box-msg"> <span class="text text-red">{{errorMessage}}</span></div>
+            <div class="button-box">
+                <button class="btn-primary" [disabled]="loginFormgroup.invalid" (click)="submitLogin()">Login</button>
+            </div>
+            <div class="box-msg text">Don't have an account?<span class="text text-violet" (click)="register()">Sign up</span></div>
+
+        </div>
+    </div>
+</div>
+<dialog id="my-dialog">
+  <app-register-modal (closeDialog)="onCloseDialog()"></app-register-modal>
+</dialog>

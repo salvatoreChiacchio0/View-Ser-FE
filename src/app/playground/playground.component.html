@@ -1,0 +1,72 @@
+<div class="playground-page">
+    <div class="header">
+        <div class="spacer"></div>
+        <h1 (click)="goToHomePage()" style="cursor:pointer">Playground!</h1>
+        <div class="icon-right logout" data-text="LOGOUT!"  (click)="logout()">
+        </div>
+    </div>
+    <div class="container-box">
+        <form [formGroup]="scheduleCheckForm" >
+        <div class="container-schedule">
+            <h2>Check Schedule</h2>
+            <div class="container-input">
+                <input type="text" formControlName="schedule" placeholder="Insert a schedule (see the guidelines)">
+            </div>
+            <div class="container-guidelines" [ngStyle]="{'margin-bottom':(guidelinesFlag || result) ? '0px':'2rem'}">
+                <span class="text-default guidelines underline" (click)="guidelinesFlag = !guidelinesFlag">Guidelines</span>
+                <button class="btn-primary" [disabled]="scheduleCheckForm.invalid" (click)="checkViewSer()">Test</button>
+            </div> 
+            @if(result){
+                <div class="guidelines-text" >
+                    <div class="title-guid">Result</div>
+                        @if (result.result == true) {
+                            <span>The schedule is <b>View Serializable</b></span>
+                         }@else if (result.result == false) {
+                            <span>The schedule is not <b>View Serializable</b></span>
+                         }@else {
+                            {{result.result}}
+                         }
+    
+                    <br>
+                    <div class="container-solution">
+                        @if (result.result == true || result.result == false ){
+                        Did you want to see the full solution? <br> <span class="solution-text" (click)="solutionFlag = true">click here</span>
+                        <br>
+                        @if(solutionFlag){
+                    <app-solution [result]="result"></app-solution>
+                        }
+                    }</div>
+                
+                </div>
+            }
+            @if(guidelinesFlag){
+                <div class="guidelines-text">
+                    <div class="title-guid">Guidelines</div>
+                    <div class="text-default">
+                        <ul>
+                            Each action (read or write) of the input schedule have to respect the form <b>At(e)</b> where:
+                          <li>A – Action that can be either ‘r’ or ‘w’ </li> 
+                            <li>t – Transaction, one-digit number</li> 
+                            <li>e – Element of the database </li> 
+                            </ul>
+                            <ol >Few rules to follows:
+                                <li> No transaction reads or writes the same element twice
+                                    and no transaction reads an element that it has written</li>
+                                    <li>Remember that in the round brackets relating to the database element (e) 
+                                        there is no difference between upper and lower case</li>
+                                        <li>Do not insert 'W' or 'R' as element of database (e)</li>
+                            </ol>
+                    </div>
+                </div>
+            }
+        </div>
+    </form>
+        <div class="container-test">
+            <app-test-ability></app-test-ability>
+        </div>
+    </div>
+</div>
+<footer>
+    Chiacchio Salvatore 2098209 - Data Management  <br>
+    Design and implement a software that emulates a scheduler based on a specific protocol or strategy for concurrency control
+  </footer>

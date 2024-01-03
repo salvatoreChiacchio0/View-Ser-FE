@@ -1,0 +1,18 @@
+    <div class="container-dialog">
+        <h2 class="subtitle-font">Register</h2>
+     <form  [formGroup]="registerFormGroup">
+        <input type="text" formControlName="name" placeholder="Insert your name">
+
+        <input type="email" formControlName="email" placeholder="Insert an email">
+                <input type="password" formControlName="password" placeholder="Password...">
+    
+            </form>
+            <span class="text text-red">{{errorMessage}}</span>
+            <div class="row-button">
+                
+                <button  (click)="onCloseDialog()" class="close-btn">Close</button>
+                <button (click)="register()" class="save-btn">Save</button>
+            </div>
+                
+    </div>
+

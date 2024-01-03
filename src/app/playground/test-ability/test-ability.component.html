@@ -1,0 +1,44 @@
+<h2>Test your ability</h2>
+     <div class="container-schedule" [ngStyle]="{'margin-bottom':(randomScheduleRetrieved()) ? '0x':'2rem'}">
+         <div class="container-input">
+            <input type="text" [(ngModel)]="randomSchedule"  readonly>
+                 <div #dice class="dice" (click)="getRandomSchedule()">🎲</div>
+        </div>    
+        @if (randomScheduleRetrieved()) {
+        <h2>Is this schedule View Serializable?</h2> 
+        <div class="radio-container" >
+            <form class="radio-form" [formGroup]="radioFormGroup">
+                <label class="form-control">
+                  <input type="radio" formControlName="guess"  [value]=true />
+                  True
+                </label>
+              
+                <label class="form-control">
+                  <input type="radio" formControlName="guess" [value]=false />
+                  False
+                </label>
+                <div class="submit-container">
+                <button class="btn-primary" (click)="verifySchedule()">Verify</button>
+              </div>
+              </form>
+              
+              @if(result){
+                <div class="guidelines-text" >
+                  <div class="title-guid">Result</div>
+                  <span class="text-default">{{result}}</span>
+                </div>
+                  <div class="container-solution">
+                      
+                    Did you want to see the full solution? <br> <span class="solution-text" (click)="scheduleSolution()">click here</span>
+                    <br>  
+                    @if (randomScheduleResult) {
+                <app-solution [result]="randomScheduleResult"></app-solution>
+              }
+            </div>
+          
+        
+         
+    }
+     </div>
+    }
+ 

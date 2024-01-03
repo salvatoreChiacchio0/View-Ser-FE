@@ -1,0 +1,29 @@
+<div class="wrap">
+
+    <div class="container">
+    <div   class="floatleft">
+        <h1>View Serializability</h1>
+        <div class="text-ser">
+        <ul>Preliminary definitions:
+            <li> In a schedule S, we say that  r<sub>i</sub>(x) <b>READS-FROM</b> w<sub>j</sub>(x) if wj(x) preceeds r<sub>i</sub>(x) in S, and there is no action of type w<sub>k</sub>(x) between w<sub>j</sub>(x) and r<sub>i</sub>(x). The
+            <b>READS-FROM </b> relation associated to S is the set of pair (r<sub>i</sub>(x),w<sub>j</sub>(x)) such that r<sub>i</sub>(x) <b>READS-FROM</b> w<sub>j</sub>(x).</li>
+            
+            <li> In a schedule S, we say that <b> w<sub>i</sub>(x) is a FINAL-WRITE </b>if w<sub>i</sub>(x) is the last write action on x in S. The FINAL-WRITE set associated to S is the set of actions w<sub>i</sub> (x) such that <b>w<sub>i</sub> (x) is the last write action on x in S</b>.</li>
+        </ul>  
+        <br>
+          </div>
+        </div>
+    <div class="floatright">
+        <div class="db-image"></div>
+        </div>
+    </div>
+
+        <div class="floatleft text-ser">
+        <b>Definition of View-Equivalence:</b> let S1 and S2 be two (total) schedules on the same transactions. Then <b>S1 is view-equivalent to S2 </b>if S1 and S2 have the same <b>READS-FROM</b> relation, and the same <b>FINAL-WRITE</b> set.
+        <br><br><b>Definition of View-Serializability:</b> a (total) schedule S on (T1,…,Tn) is <b>view-serializable</b> if there exists a serial schedule S’ on (T1,…,Tn) that is <b>view-equivalent</b> to S.
+    </div>
+</div>
+<footer>
+    Chiacchio Salvatore 2098209 - Data Management  <br>
+    Design and implement a software that emulates a scheduler based on a specific protocol or strategy for concurrency control
+  </footer>

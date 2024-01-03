@@ -1,0 +1,113 @@
+/* parallax.component.css */
+
+.parallax-section {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .content {
+    text-align: center;
+    width: 100vw;
+   }
+   
+  
+  /* Optional: Adjust styles as needed */
+  
+
+
+  
+
+.container-home {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.centered-box {
+    position: fixed;
+    padding-top: 180px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width: 70vw;
+    height: 30vh;
+}
+
+.parallax-wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 3;
+    transform: scale(1.01);
+}
+
+.btn-primary {
+    border: 0px;
+    transition: all .5s ease;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 8px 15px;
+    background: color-mix(in srgb, #822433 25%, transparent);
+    color: white;
+}
+
+.btn-primary:hover {
+    color: white;
+    background-color: #822433;
+}
+
+.text {
+    padding: 15px 0px;
+    letter-spacing: 0rem;
+}
+
+.scroll-down {
+    position: absolute;
+    z-index: 1000;
+    bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    animation: bounce 2.5s linear infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1rem);
+    }
+}
+
+.tutorial {
+    width: 100%;
+    height: 100vh;
+    background-color: #822433;
+    color: #fff;
+    position: fixed;
+    position: inherit;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Add more styling for the tutorial content as needed */
+
+/* Show the tutorial on scroll */
+body.show-tutorial .tutorial {
+    display: block;
+}

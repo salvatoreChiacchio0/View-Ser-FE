@@ -1,0 +1,14 @@
+
+                <div class="full-solution" >
+                      <b>Schedule:</b> {{' '+result.schedule?.replaceAll(')',') ')}}  <br>
+                      <b>Final write: </b>{{' '+result.finalWrite}}  <br>
+                      <b>Read from:</b>{{' '+result.readFrom}}  <br>
+                      <b>View Eq Transaction:</b>{{' '+result.viewEquivalentTransaction}}  <br>
+                       <b>View Eq Schedule: </b><br> 
+                      @for (serial of result.viewEquivalentSchedule; track serial) {
+                          <div class="tab">{{ serial.replaceAll(')',') ') }} </div><br>
+                        } @empty {
+                          No serial schedule
+                      }
+               </div>
+          
